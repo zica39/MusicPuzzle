@@ -89,7 +89,7 @@
                 $dragElem[0].onclick = function() {
                     if (!isTesting) this.firstChild.click()
                 };
-                //$dragElem[0].ontouch = $dragElem[0].onclick;
+                $dragElem[0].ontouchstart = $dragElem[0].onclick;
 
                 musicPuzzle.stepCount++;
                 // $('.stepCount').text(musicPuzzle.stepCount);
@@ -133,7 +133,7 @@
             li[0].onclick = function() {
                 if (!isTesting) this.firstChild.click()
             };
-            //li[0].ontouch = li[0].onclick;
+            li[0].ontouchstart = li[0].onclick;
 
             ////////////////////////////////li item for set ....
             var button = document.createElement('button');
@@ -177,7 +177,7 @@ $.fn.randomize = function(selector) {
 
 function initialize(button) {
 
-    //button.ontouch = button.onclick;
+    button.ontouchstart = button.onclick;
     button.onclick = function() {
         if (isPlaying == true) {
 
@@ -487,40 +487,3 @@ $(window).on("orientationchange", function(event) {
         'height': w > h ? '25vh' : '25vw'
     });
 });
-
-function touchHandler(event)
-{
-    var touches = event.changedTouches,
-        first = touches[0],
-        type = "";
-    switch(event.type)
-    {
-        case "touchstart": type = "mousedown"; break;
-        case "touchmove":  type = "mousemove"; break;        
-        case "touchend":   type = "mouseup";   break;
-        default:           return;
-    }
-
-    // initMouseEvent(type, canBubble, cancelable, view, clickCount, 
-    //                screenX, screenY, clientX, clientY, ctrlKey, 
-    //                altKey, shiftKey, metaKey, button, relatedTarget);
-
-    var simulatedEvent = document.createEvent("MouseEvent");
-    simulatedEvent.initMouseEvent(type, true, true, window, 1, 
-                                  first.screenX, first.screenY, 
-                                  first.clientX, first.clientY, false, 
-                                  false, false, false, 0/*left*/, null);
-
-    first.target.dispatchEvent(simulatedEvent);
-    //event.preventDefault();
-}
-
-function init() 
-{
-    document.addEventListener("touchstart", touchHandler, true);
-    document.addEventListener("touchmove", touchHandler, true);
-    document.addEventListener("touchend", touchHandler, true);
-    document.addEventListener("touchcancel", touchHandler, true);    
-}
-
-window.onload = init;
