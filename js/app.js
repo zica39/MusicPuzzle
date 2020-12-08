@@ -308,7 +308,7 @@ function openAlertDialog(txt,close) {
 	
 	$('#info-alert-popup').first().first().html(txt);
 	
-	$('#info-alert-popup').css('zIndex','999999');
+	$('#info-alert-popup').css({zIndex:'999999', position:'absoulte', top:'50px'});
 
     if (close) {
 		
