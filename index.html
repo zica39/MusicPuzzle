@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <!-- Meta -->
+      <meta charset="utf-8">
+      <meta http-equiv="Cache-Control" content="no-store" />
+      <meta name="apple-mobile-web-app-capable" content="yes" >
+      <meta name="viewport" content="width=device-width, height=device-height, user-scalable=no" >
+      <!-- Ads -->
+      <!--<script type="text/javascript" src="https://cdn.ad4game.com/ad4game_html5_sdk.js"></script>-->
+      <!-- Fontawesome -->
+      <script src="js/libs/solid.js"></script>
+      <script src="js/libs/fontawesome.js"></script>
+      <link rel="stylesheet" href="css/css.css">
+      <!-- Favicon -->
+      <link rel="icon" href="images/icon.png">
+      <!-- Style -->
+      <link rel="stylesheet" href="css/style.css">
+      <link href="css/image-puzzle.css" rel="stylesheet" />
+      <!-- Scripts -->
+      <script src="js/libs/jquery-2.1.1.min.js"></script>
+      <script src="js/libs/jquery-ui.js"></script>
+      <script src="js/libs/jquery.ui.touch-punch.min.js"></script>
+      <script src="js/data.js"></script>
+      <script src="js/musicPuzzle.js"></script>
+      <title>Music Puzzle</title>
+   </head>
+   <body hidden>
+      <script>loadData();</script>
+      <!-- OVERLAY -->
+      <section class="overlay" id="overlay"></section>
+      <!-- START GAME POPUP -->
+      <section  class="start-game-popup" id="start-game-popup">
+         <img draggable = 'false' align = 'center' onload = "$('#menu').hide();" style = "width:25vmax;height:25vmax;" data-old = "140px" src = 'images/icon.png'>
+         <div>
+            <button onclick = "playButtonClick();" id="start-game-btn" >
+               <div class="moves" id="moves">
+                  <i class="fas fa-play"></i>
+               </div>
+            </button>
+            <button onclick = "openInfoPause(false);openFullscreen();">
+               <div class="moves" id="moves">
+                  <i class="fas fa-question"></i>
+               </div>
+            </button>
+            <button onclick = "openInfoPause(true)">
+               <div class="moves" id="moves">
+                  <i class="fas fa-info"></i>
+               </div>
+            </button>
+            <button >
+               <div class="moves" id="moves">
+                  <i class="fas fa-share"></i>
+               </div>
+            </button>
+         </div>
+         <!-- <button id="start-game-btn">Play</button>
+            <button onclick = "openInfoPause(false)">Help</button>
+            <button onclick = "openInfoPause(true)">About</button>
+            <button >Share</button> -->
+      </section>
+      <section hidden class="start-game-popup" id="info-help-popup">
+         <div id = 'helpPanel'>
+            <h3>Help pannel</h3>
+         </div>
+         <div id = 'infoPanel'>
+            <h3>...</h3>
+            <button >
+               <div class="moves" ><i class="fas fa-github"></i></div>
+            </button>
+         </div>
+         <button onclick = "closeInfoPause();" >Close</button>
+      </section>
+      <section style= 'height:auto' hidden class="start-game-popup" id="end-game-popup">
+         <h3 id = 'mTitle' ></h3>
+         <div id ='starBox'></div>
+         <h3 id = 'score'>
+         </h4>
+         <h4 id = 'bestScore'>Best:</h4>
+         <button id = "next" hidden onclick = 'next.call(this);'>
+            <div class="moves" id="moves">
+               <i class="fas fa-forward"></i>
+            </div>
+         </button>
+         <button onclick = "replay();">
+            <div class="moves" id="moves">
+               <i class="fas fa-undo"></i>
+            </div>
+         </button>
+         <button onclick = "closeGame();">
+            <div class="moves" id="moves">
+               <i class="fas fa-bars"></i>
+            </div>
+         </button>
+         <button >
+            <div class="moves" id="moves">
+               <i class="fas fa-share"></i>
+            </div>
+         </button>
+         <!-- <button id = "next" hidden onclick = 'next.call(this);'>Next</button>
+            <button onclick = 'replay();'>Replay</button>
+            <button onclick = "closeGame();">Back</button>
+            <button>Share</button> -->
+      </section>
+      <div id = 'menu'>
+         <!-- MAIN HEADER -->
+         <header class="main-header">
+            <div style="display:none;" class="user-play-infos">
+               <div class="stars" id="stars">
+                  <i class="fas fa-unlock"></i>
+                  <p id="unlocked"> 0/0</p>
+               </div>
+            </div>
+            <!-- <div style='display:none;' class="reset">
+               <button style = "border-radius:0px;" id="reset" onclick = 'openInfoPause(true);' >
+               <div class="moves" id="moves">
+               	<i class="fas fa-shopping-cart"></i>
+               </div>
+               </button>
+               </div> -->
+            <div class="reset">
+               <button style = "border-radius:0px;" id="reset" onclick = 'openInfoPause(true);' >
+                  <div class="moves" id="moves">
+                     <i class="fas fa-info-circle"></i>
+                  </div>
+               </button>
+            </div>
+            <!--<img src = 'images/icon.png' >-->
+            <div style = 'display:flex; align-items:center;'>
+               <h2 id = 'title1' style="color:#eee; font-weight:bold; font-size: 4vw;"> #Music__Puzzle</h2>
+            </div>
+            <div style='display: flex;'>
+               <!--<div class="reset">
+                  <button style = "border-radius:0px;" id="reset" onclick = 'openInfoPause(true);' >
+                  <div class="moves" id="moves">
+                  	<i class="fas fa-shopping-cart"></i>
+                  </div>
+                  </button>
+                  </div>-->
+               <div class="reset">
+                  <a target = '_blank' href = 'https://www.instagram.com/music__puzzle/'>
+                     <button style = "border-radius:0px;" id="reset" onclick = '' >
+                        <div class="moves" id="moves">
+                           <i class="fas fa-star"></i>
+                        </div>
+                     </button>
+                  </a>
+               </div>
+            </div>
+         </header>
+         <!-- MAIN GRID -->
+         <main class="main-grid" id="grid"></main>
+      </div>
+      <script src="js/app.js"></script>
+      <div id="collage" hidden>
+         <div id = 'header'>
+            <div class="user-play-infos">
+               <div class="stars" id="stars">
+                  <i class="fas fa-heart"></i>
+                  <p id="visual-stars">3</p>
+               </div>
+            </div>
+            <div style = 'display:flex; align-items:center;'>
+               <h2 id = 'title' style="color:#eee; font-weight:bold; font-size: 4vw;">Music Puzzle</h2>
+               <button id ="help" class = "Play" onclick = "help.call(this)"></button>
+            </div>
+            <div class="reset">
+               <button id="reset1" onclick = "closeGame();">
+                  <div class="moves" id="moves">
+                     <i class="fas fa-bars"></i>
+                  </div>
+               </button>
+            </div>
+         </div>
+         <ul id="sortable" class="sortable"></ul>
+         <div id = "panel" >
+            <div class="user-play-infos" style="margin-right:9px">
+               <div class="moves" id="moves">
+                  <i class="fas fa-hashtag"></i>
+                  <p id="visual-moves">0</p>
+               </div>
+            </div>
+            <button id ="test" class='Play' onclick = "test();"></button>
+            <div class="user-play-infos">
+               <div class="reset">
+                  <p id="visual-timer">00:00</p>
+               </div>
+            </div>
+         </div>
+      </div>
+      <script>
+         //var h1 = document.getElementsByTagName('h1')[1];
+         var title = document.getElementById('title');
+         var seconds = 0, minutes = 0, hours = 0;
+         var t;
+         var gridSize = 3;
+         var lives = 3;
+         var isPlaying = false, isTesting = false, indexElement = null;
+         var sound;
+         var lastElement;
+         
+                   var images = [
+         		{ src: 'images/notes/note1.png' },
+         		{ src: 'images/notes/note2.png' },
+         		{ src: 'images/notes/note3.png' },
+         		{ src: 'images/notes/note4.png' },
+         		{ src: 'images/notes/note5.png' }
+                   ];
+         
+                   $(function () {
+                    	$('#collage').hide();	
+						loadSound();
+                   });
+               
+      </script>
+   </body>
+</html>

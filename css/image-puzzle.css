@@ -1,0 +1,232 @@
+﻿#collage{
+	
+	overflow: hidden;
+	height: 100vh;
+	width: 100vw;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+	
+	background: url('../images/background1.jpg');
+	background-position: center;
+	background-size: cover;
+	background-attachment: fixed;
+	
+}
+
+#collage hr{
+    border:none;
+    border-top:1px solid #333;
+    height:1px;
+	
+}
+
+#collage #playPanel {
+	float:left;
+    width:99%;
+}
+
+#collage #actualImageBox {
+	float:right;
+    font-size:1em;
+    margin: 10px 10px;
+    vertical-align: top;
+    width:280px;
+	
+}
+
+#collage #stepBox div {
+    display:inline-block;
+    padding:20px 20px;
+	font-size:40px;
+    margin: 0px auto;
+	color:#555;
+	
+}
+
+#collage img#actualImage{
+    height:280px;
+    width:280px;
+	
+}
+
+#collage #sortable {
+	
+	/* border:1px solid #999; */
+    list-style-type: none;
+    /* display: inline-block; */
+    margin: 10px;
+    padding: 0;
+    /* width: 700px; */
+	/* box-sizing:initial; */
+	
+	display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+    #collage #sortable li {
+        background-size: 400% 400%;
+       /*  border: none; */
+		border : black ridge 3px;
+        cursor: pointer;
+        margin: 1px;
+        padding: 0;
+        float: left;
+		
+       /*  width: 100px;
+        height: 100px; */
+		
+		/* width: 20vh;
+        height: 20vh; */
+		
+/* 	width: -moz-calc((40vh+40vw)/2);
+    width: -o-calc((40vh+40vw)/2);
+    width: -webkit-calc((40vh+40vw)/2);
+    width: calc((40vh+40vw)/2);
+	
+	height: -moz-calc((40vh+40vw)/2);
+    height: -o-calc((40vh+40vw)/2);
+    height: -webkit-calc((40vh+40vw)/2);
+    height: calc((40vh+40vw)/2); */
+		
+	display: flex;
+    align-items: flex-end;
+	justify-content: flex-end;
+    /*justify-content: space-between;*/
+    }
+
+#collage button  {
+    background-color:#f5f2f2;
+    border:1px solid #cce;
+    display: inline;
+    font-size: 14px;
+    height: auto;
+    width: auto;
+    padding: 3px 8px;
+}
+
+	#panel{
+	overflow:visible;
+	height: 30px;
+	
+	background: #000; 
+	color:#eee; 
+	text-align:center;
+	padding: 5px;
+	
+	display: flex;
+	align-items: center;
+    justify-content: space-between;
+	}
+	
+	#playPanel{
+	
+	display:none;
+	padding:5px; 
+	
+	display: flex;
+	align-items: center;
+    justify-content: center;
+	}
+	
+	#collage #sortable li button{
+	order : 1;
+	
+	border-radius: 5px;	
+	width: 25%;
+    height: 25%;
+	-webkit-transition: width,height 0.5s; /* Safari prior 6.1 */
+	transition: width,height 0.5s;
+    background-image: url("../images/button.png");
+    background-size: contain;
+    background-position: bottom;
+    background-repeat: no-repeat;
+	}
+	#collage #sortable li button:hover{
+	
+	width: 30%;
+    height: 30%;
+	}
+	#collage #sortable li progress{
+		order : 0;
+		opacity: 0.3;
+		height: 100%;
+	}
+	progress {background-color: #aaa;}
+	progress::-webkit-progress-value {background-color: azure;}
+	
+	#collage #header{
+		
+	background: #000; 
+	color:#eee; 
+	/* padding:10px;  */
+	text-align:center;
+	
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+	}
+	
+	#collage #help{
+		
+	margin-left: 10px;
+	width: 43px;
+	height: 42px;
+    background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center;
+    background-color: transparent;
+	border-color:transparent;
+		
+	}
+	
+	#collage #help.Play{
+		background-image: url(../images/playButton.png);
+	}
+	
+	#collage #help.Stop{
+		background-image: url(../images/playButton1.png);
+	}
+	
+	#collage #help:hover{
+	
+	opacity: 0.7;
+	
+	-webkit-transition:opacity 0.5s; /* Safari prior 6.1 */
+	transition: opacity 0.5s;
+	
+	}
+	
+	#collage #test{
+	height: 70px;
+    width: 70px;
+	margin-bottom:30px;
+	
+	/* background-image: url(../images/playButton.png); */
+	
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center;
+    background-color: transparent;
+	border-color:transparent;
+	}
+	
+	#collage #test.Play{
+		background-image: url(../images/playButton.png);
+	}
+	
+	#collage #test.Stop{
+		background-image: url(../images/playButton1.png);
+	}
+	
+	#collage #test:hover{
+	
+	opacity: 0.7;
+	
+	-webkit-transition:opacity 0.5s; /* Safari prior 6.1 */
+	transition: opacity 0.5s;
+	
+	}
+	
