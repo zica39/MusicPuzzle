@@ -171,7 +171,9 @@ $.fn.randomize = function(selector) {
 
 function initialize(button) {
 
-    button.onclick = function() {
+    button.onclick = function(e) {
+		e.stopPropagation();
+		
         if (isPlaying == true) {
 
             pause();
@@ -192,17 +194,14 @@ function initialize(button) {
         indexElement = self;
         var gridSizeS = gridSize * gridSize;
 
-        /* 	var startTime = (sound.duration/gridSizeS) * index;
-        	var endTime =  (sound.duration/gridSizeS) * (index+1);
-        	var duration = endTime - startTime;
-        	
-        	sound.currentTime = startTime; */
         var dur = sound.duration;
         var start = currentSong.start;
         var end = currentSong.end;
         var duration = end - start;
-
-        var startTime = start + (duration / gridSizeS) * index;
+		
+		var split = Number(index>0)/60;
+		
+        var startTime = start + (duration / gridSizeS) * index + split;
         var endTime = start + (duration / gridSizeS) * (index + 1);
         var duration = endTime - startTime;
 
