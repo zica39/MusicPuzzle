@@ -86,10 +86,10 @@
 
                 initialize($dragElem[0].children[0]);
 
-                $dragElem[0].onclick = function() {
+                /* $dragElem[0].onclick = function() {
                     if (!isTesting) this.firstChild.click()
                 };
-                $dragElem[0].ontouchstart = $dragElem[0].onclick;
+                $dragElem[0].ontouchstart = $dragElem[0].onclick; */
 
                 musicPuzzle.stepCount++;
                 // $('.stepCount').text(musicPuzzle.stepCount);
@@ -124,10 +124,10 @@
                 'height': w > h ? '25vh' : '25vw'
             });
 
-            li[0].onclick = function() {
+            /* li[0].onclick = function() {
                 if (!isTesting) this.firstChild.click()
             };
-            li[0].ontouchstart = li[0].onclick;
+            li[0].ontouchstart = li[0].onclick; */
 
             ////////////////////////////////li item for set ....
             var button = document.createElement('button');
