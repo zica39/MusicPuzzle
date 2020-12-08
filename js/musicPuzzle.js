@@ -89,7 +89,7 @@
                 $dragElem[0].onclick = function() {
                     if (!isTesting) this.firstChild.click()
                 };
-                $dragElem[0].ontouchend = $dragElem[0].onclick;
+                $dragElem[0].ontouch = $dragElem[0].onclick;
 
                 musicPuzzle.stepCount++;
                 // $('.stepCount').text(musicPuzzle.stepCount);
@@ -133,7 +133,7 @@
             li[0].onclick = function() {
                 if (!isTesting) this.firstChild.click()
             };
-            li[0].ontouchend = li[0].onclick;
+            li[0].ontouch = li[0].onclick;
 
             ////////////////////////////////li item for set ....
             var button = document.createElement('button');
