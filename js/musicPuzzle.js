@@ -523,4 +523,4 @@ function init()
     document.addEventListener("touchcancel", touchHandler, true);    
 }
 
-init();
+window.onload = init;
