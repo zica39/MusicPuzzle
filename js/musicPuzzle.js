@@ -123,11 +123,6 @@
                 'background-size': 'cover',
                 'width': w > h ? '25vh' : '25vw',
                 'height': w > h ? '25vh' : '25vw'
-                //'background-size': (gridSize * 100) + '%'
-                //'background-position': xpos + ' ' + ypos  
-                //'width': 'calc(100% * (1/'+gridSize+'))'
-                //'height': 700 / gridSize
-
             });
 
             li[0].onclick = function() {
