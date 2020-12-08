@@ -21,15 +21,14 @@ function saveData() {
 function defaultData() {
 
     data = [
-
-        {
-            singer: "Antonín Dvořák",
-            song: "Slavonic Dance",
+		{
+            singer: "Ludwig van Beethoven",
+            song: "Für Elise",
             locked: false,
             hiScore: 0,
             difficult: GAME_EASY,
-            start: 0,
-            end: 19
+            start: 54,
+            end: 60 + 9
         },
 
         {
@@ -51,15 +50,14 @@ function defaultData() {
             start: 39,
             end: 54
         },
-
-        {
-            singer: "Ludwig van Beethoven",
-            song: "Für Elise",
+		{
+            singer: "Antonín Dvořák",
+            song: "Slavonic Dance",
             locked: true,
             hiScore: 0,
             difficult: GAME_MEDIUM,
-            start: 54,
-            end: 60 + 9
+            start: 0,
+            end: 19
         },
 
         {
