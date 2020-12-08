@@ -2,7 +2,7 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 
-Fun and simple memory game made with JavaScript & JQuery.
+Fun and simple memory game made with JavaScript.
 
 ### [View the demo](https://zica39.github.io/MusicPuzzle/)
 
