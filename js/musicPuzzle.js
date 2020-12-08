@@ -89,7 +89,7 @@
                 $dragElem[0].onclick = function() {
                     if (!isTesting) this.firstChild.click()
                 };
-                $dragElem[0].ontouchstart = $dragElem[0].onclick;
+                //$dragElem[0].ontouchstart = $dragElem[0].onclick;
 
                 musicPuzzle.stepCount++;
                 // $('.stepCount').text(musicPuzzle.stepCount);
@@ -127,7 +127,7 @@
             li[0].onclick = function() {
                 if (!isTesting) this.firstChild.click()
             };
-            li[0].ontouchstart = li[0].onclick;
+            //li[0].ontouchstart = li[0].onclick;
 
             ////////////////////////////////li item for set ....
             var button = document.createElement('button');
@@ -171,7 +171,6 @@ $.fn.randomize = function(selector) {
 
 function initialize(button) {
 
-    button.ontouchstart = button.onclick;
     button.onclick = function() {
         if (isPlaying == true) {
 
@@ -254,7 +253,7 @@ function initialize(button) {
         }
     }
 
-
+	button.ontouchstart = button.onclick;
 }
 
 function test() {
