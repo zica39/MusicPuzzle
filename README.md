@@ -4,7 +4,7 @@
 
 Fun and simple memory game made with JavaScript & JQuery.
 
-### [View the demo](https://zica39.github.io/MusicPuzzle/index.html)
+### [View the demo](https://zica39.github.io/MusicPuzzle/)
 
 ## License
 
