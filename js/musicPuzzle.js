@@ -208,8 +208,9 @@ function initialize(button) {
         var duration = endTime - startTime;
 
         sound.currentTime = startTime;
-
-        play();
+		
+		setTimeout(function() {play()}, 0);
+        //play();
 
         //if(isTesting == true){self.parentElement.style.outline = "3px "+[(index == $(self.parentElement).index() )?"greenyellow":"red"]+" ridge";self.parentElement.style.outlineOffset = "-3px";}
         if (isTesting == true) {
