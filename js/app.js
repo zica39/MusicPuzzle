@@ -187,7 +187,7 @@ function createStarBox(star, flag) {
 function showResult() {
 
     $('#overlay').show();
-    $('#end-game-popup').slideDown(2000);
+    $('#end-game-popup').slideDown(2000 , e => openAlertDialog('',true));
     $('#collage').hide();
 
     var score = Math.round(getScore() * 200);
@@ -208,7 +208,8 @@ function showResult() {
 
             if (data[newIndex].locked == true) {
                 data[newIndex].locked = false;
-                alert(data[newIndex].song + " unlocked!!!");
+                //alert(data[newIndex].song + " unlocked!!!");
+				openAlertDialog(data[newIndex].song + " unlocked!!!");
                 $('#next').show();
                 $('#next')[0].nextSong = data[newIndex];
                 //$('#next')[0].singer = currentSong.singer;
@@ -219,7 +220,7 @@ function showResult() {
             }
 
         if (newIndex == data.length) {
-            alert('win_game');
+            openAlertDialog('win_game');
         }
     }
 
@@ -291,6 +292,27 @@ function openInfoPause(isInfo) {
     $('#grid')[0].style.pointerEvents = 'none';
 
     if (isInfo) {
+        $('#infoPanel').show();
+        $('#helpPanel').hide();
+    } else {
+        $('#infoPanel').hide();
+        $('#helpPanel').show();
+    }
+
+}
+
+function openAlertDialog(txt,close) {
+	
+    $('#info-alert-popup').show();
+    $('#start-game-popup').hide();
+	
+	$('#info-alert-popup').first().first().html(txt);
+	
+	$('#info-alert-popup').css('zIndex','999999');
+
+    if (close) {
+		
+		$('#info-alert-popup').hide();
         $('#infoPanel').show();
         $('#helpPanel').hide();
     } else {
